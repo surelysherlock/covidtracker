@@ -1,0 +1,11 @@
+<p>Covid Info</p>
+
+<p>Enter state in two digits</p>
+<form [formGroup]="form" >
+  <input formControlName="state" type="text" name="state" id="state" >
+  <button class="btn btn-success" (click)="getCurrentData()">Get Data</button>
+</form>
+
+<ul>
+  <li *ngFor="let state of stateData;"> {{ state.state }} Positive Cases: {{ state.positive | number }} Date Reported: {{ state.date  }} Currently Hospitalized : {{ state.hospitalizedCurrently}} Cases Today: {{ state.positiveIncrease | number}} Hospitalized Today: {{ state.hospitalizedIncrease | number }}</li>
+</ul>
