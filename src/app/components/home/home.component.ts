@@ -8,9 +8,15 @@ import { FormGroup, FormControl} from '@angular/forms';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  
   stateData: any;
 
-  formatedStateData: any;
+  stateName: String = "None";
+  totalPositiveCases: String = "";
+  lastUpdatedDate: String = "";
+  currentlyHospitalized: String = "";
+  numberOfCasesToday: String = "";
+  numberOfHospitalizedToday: String = "";
 
   monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"];
@@ -19,23 +25,10 @@ export class HomeComponent implements OnInit {
     stateForm: new FormControl()
   })
 
-  state = new FormControl();
 
-  updateState(data:any) {
-    this.state.setValue("cool");
-  }
-
-  get first(): any {
-    return this.form.get('stateForm');
-  }
-
-  
-  stateName: String = "None";
-  totalPositiveCases: String = "totalPositiveCases";
-  lastUpdatedDate: String = "lastUpdatedDate";
-  currentlyHospitalized: String = "currentlyHospitalized";
-  numberOfCasesToday: String = "numberOfCasesToday";
-  numberOfHospitalizedToday: String = "numberOfHospitalizedToday";
+  // get first(): any {
+  //   return this.form.get('stateForm');
+  // }
 
   //Formats dates
   modifyDateForResponse(data: any){
@@ -54,28 +47,29 @@ export class HomeComponent implements OnInit {
     return data;
   }
 
-  returnStateName(data: any){
-   return data[0].state
-  }
-
-  getCurrentData(stateName:String){
-    // console.log(this.form.get('stateForm')?.value);
-    console.log(stateName);
-    
+  getCurrentData(stateNameInput:String){
     this.http.get('https://api.covidtracking.com/v1/states/current.json').subscribe(response => {
     this.stateData = response;
     this.stateData = this.modifyDateForResponse(this.stateData);
-    this.stateName = this.returnStateName(this.stateData);
-    this.state.setValue(this.stateName);
-    // this.stateData.forEach((element:any) => {
-    //   console.log(element.state)
-    // });
+    for (let i = 0; i < this.stateData.length; i++) {
+      const stateNameHolder = this.stateData[i]['state'];
+      if (stateNameHolder == stateNameInput) {
+        this.stateData = this.stateData[i];
+      }
+    }
+    this.stateName = this.stateData['state'];
+    this.totalPositiveCases = this.stateData['positive'];
+    this.lastUpdatedDate = this.stateData['date'];
+    this.currentlyHospitalized = this.stateData['hospitalizedCurrently'];
+    this.numberOfCasesToday = this.stateData['positiveIncrease'];
+    this.numberOfHospitalizedToday = this.stateData['hospitalizedIncrease'];
+    this.lastUpdatedDate = this.stateData['date'];
     })
   }
 
 
   constructor(private http: HttpClient) { 
-    
+
   }
   
   ngOnInit(): void {

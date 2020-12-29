@@ -9,11 +9,33 @@
     <input formControlName="stateForm" type="text" name="state" id="state" >
   </label>
   <button class="btn btn-success" type="submit" >Get Data</button>
-
 </form>
+<h6>Last Updated Date: {{ lastUpdatedDate }}</h6>
+<div class="card" id="firstcard" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Total Positive Cases</h5>
+    <p class="card-text">{{ totalPositiveCases }}</p>
+  </div>
+</div>
+<div class="card" id="secondcard" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Currently Hospitalized</h5>
+    <p class="card-text">{{ currentlyHospitalized }}</p>
+  </div>
+</div>
+<div class="card" id="thirdcard" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Number of Cases Today</h5>
+    <p class="card-text">{{ numberOfCasesToday }}</p>
+  </div>
+</div>
+<div class="card" id="fourthcard" style="width: 20rem;">
+  <div class="card-body">
+    <h5 class="card-title">Number of Hospitalized Today</h5>
+    <p class="card-text">{{ numberOfHospitalizedToday }}</p>
+  </div>
+</div>
 
-
-<h2> {{ state.value }} </h2>
 
 <!-- <ul>
   <li *ngFor="let state of stateData;"> {{ state.state }} Positive Cases: {{ state.positive | number }} Date Reported: {{ state.date  }} Currently Hospitalized : {{ state.hospitalizedCurrently}} Cases Today: {{ state.positiveIncrease | number}} Hospitalized Today: {{ state.hospitalizedIncrease | number }}</li>
