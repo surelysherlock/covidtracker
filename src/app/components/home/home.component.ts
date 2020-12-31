@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { FormGroup, FormControl} from '@angular/forms';
+import { CovidTrackerService } from 'src/app/restapi.service';
 
 @Component({
   selector: 'app-home',
@@ -9,6 +9,9 @@ import { FormGroup, FormControl} from '@angular/forms';
 })
 export class HomeComponent implements OnInit {
   
+  constructor(private covidService: CovidTrackerService) { 
+
+  }
   stateData: any;
 
   stateName: String = "None";
@@ -48,7 +51,7 @@ export class HomeComponent implements OnInit {
   }
 
   getCurrentData(stateNameInput:String){
-    this.http.get('https://api.covidtracking.com/v1/states/current.json').subscribe(response => {
+    this.covidService.getStateWiseData().subscribe(response => {
     this.stateData = response;
     this.stateData = this.modifyDateForResponse(this.stateData);
     for (let i = 0; i < this.stateData.length; i++) {
@@ -68,9 +71,7 @@ export class HomeComponent implements OnInit {
   }
 
 
-  constructor(private http: HttpClient) { 
-
-  }
+  
   
   ngOnInit(): void {
   
