@@ -15,11 +15,11 @@ export class HomeComponent implements OnInit {
   stateData: any;
 
   stateName: String = "None";
-  totalPositiveCases: String = "";
-  lastUpdatedDate: String = "";
-  currentlyHospitalized: String = "";
-  numberOfCasesToday: String = "";
-  numberOfHospitalizedToday: String = "";
+  totalPositiveCases: String = "N/A";
+  lastUpdatedDate: String = "N/A";
+  currentlyHospitalized: String = "N/A";
+  numberOfCasesToday: String = "N/A";
+  numberOfHospitalizedToday: String = "N/A";
 
   monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"];

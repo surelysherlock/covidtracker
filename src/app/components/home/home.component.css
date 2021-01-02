@@ -2,10 +2,27 @@
 
 #title {
   margin-top: 10px;
+  margin-left: 11px;
+}
+
+#left1em {
+  margin-left: 1em;
+}
+
+#strong {
+  font-size: large;
 }
 
 .card{
   float: left;
+  border: 2px solid #557acc;
 }
+
+#lastUpdate{
+  margin-top: 10px;
+  margin-left: 1em;
+}
+
+
 
 
