@@ -8,7 +8,10 @@
   </label>
   <button id="left1em" class="btn btn-success" type="submit" >Get Data</button>
 </form>
-<h3 id="left1em"> Current State : {{ stateName }}</h3>
+<h3 id="currentState"> Current State : {{ stateName }}</h3>
+<div id="lastUpdate">
+  <p>Last Updated: {{ lastUpdatedDate }}</p>
+</div>
 
 <div class="card bg-dark text-white" id="left1em" style="width: 18rem;">
   <div class="card-body">
@@ -35,7 +38,7 @@
   </div>
 </div>
 <br><br><br><br>
-<p id="lastUpdate">Last Updated: {{ lastUpdatedDate }}</p>
+
 
 <!-- <ul>
   <li *ngFor="let state of stateData;"> {{ state.state }} Positive Cases: {{ state.positive | number }} Date Reported: {{ state.date  }} Currently Hospitalized : {{ state.hospitalizedCurrently}} Cases Today: {{ state.positiveIncrease | number}} Hospitalized Today: {{ state.hospitalizedIncrease | number }}</li>
