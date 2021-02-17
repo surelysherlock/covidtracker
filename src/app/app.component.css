@@ -288,3 +288,34 @@
     }
   }
 
+  nav {
+    display: flex;
+    align-items: center;
+    background: rgba(33, 116, 224, 0.452);
+    line-height: 50px;
+    font-weight: bold;
+  }
+
+  .logo {
+    flex: 0 1 105px;
+    margin-left: 8px;
+    border-right: #24292e solid;
+    padding-right: 3px;
+    margin-right: 5px;
+  }
+
+  .title.home {
+    flex: 0 1 45px;
+    margin-right: 3px;
+  }
+
+  .title.usstates {
+    flex: 0 1 80em;
+  }
+
+
+  .heroku {
+    flex: 0 0 auto;
+    display: flex;
+    margin-right: 10px;
+  }
