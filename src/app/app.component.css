@@ -298,6 +298,7 @@
 
   .logo {
     flex: 0 3 auto;
+    width: auto;
     margin-left: 8px;
     border-right: #24292e solid;
     padding-right: 3px;
