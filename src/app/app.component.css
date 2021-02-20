@@ -291,13 +291,13 @@
   nav {
     display: flex;
     align-items: center;
-    background: rgba(33, 116, 224, 0.452);
+    background: rgba(224, 109, 33, 0.452);
     line-height: 50px;
     font-weight: bold;
   }
 
   .logo {
-    flex: 0 1 105px;
+    flex: 0 3 content;
     margin-left: 8px;
     border-right: #24292e solid;
     padding-right: 3px;
@@ -305,12 +305,12 @@
   }
 
   .title.home {
-    flex: 0 1 45px;
+    flex: 0 0 45px;
     margin-right: 3px;
   }
 
   .title.usstates {
-    flex: 0 1 80em;
+    flex: 0 0 80em;
   }
 
 
