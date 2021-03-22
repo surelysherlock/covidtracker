@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { CovidTrackerService } from 'src/app/restapi.service';
@@ -113,7 +114,7 @@ export class HomeComponent implements OnInit {
   }
 
   getCurrentData(stateNameInput: String) {
-    this.covidService.getStateWiseData().subscribe(response => {
+    this.covidService.getStateWiseData().subscribe((response: any) => {
       this.stateData = response;
       this.stateData = this.modifyDateForResponse(this.stateData);
       for (let i = 0; i < this.stateData.length; i++) {
@@ -137,6 +138,10 @@ export class HomeComponent implements OnInit {
       this.numberOfCasesToday = this.stateData['positiveIncrease'];
       this.numberOfHospitalizedToday = this.stateData['hospitalizedIncrease'];
       this.lastUpdatedDate = this.stateData['date'];
+    })
+
+    this.covidService.getFullResponseStateWiseData().subscribe(res => {
+      console.log(res);
     })
   }
 

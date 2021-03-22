@@ -14,4 +14,8 @@ export class CovidTrackerService {
     return this.http.get(this.rootUrl)
   }
 
+  getFullResponseStateWiseData(): Observable<object>{
+    return this.http.get(this.rootUrl, {observe: 'response'})
+  }
+
 }
